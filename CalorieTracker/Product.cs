@@ -19,11 +19,13 @@ namespace CalorieTracker
             Eggs
         }
 
+
         public string name;
         public double proteins;
         public double fats;
         public double carbohydrates;
         public double calories;
+
 
         public Product()
         {
