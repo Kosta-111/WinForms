@@ -1,9 +1,8 @@
-using System;
-
 namespace CalorieTracker
 {
     public enum Category
     {
+        None,
         Vegetables,
         Fruit,
         Grains,
@@ -15,41 +14,15 @@ namespace CalorieTracker
 
     internal class Product
     {
-        private string name;
-        private double proteins;
-        private double fats;
-        private double carbohydrates;
-        private double calories;
+        public string Name { get; set; }
 
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public double Proteins { get; set; }
 
-        public double Proteins
-        {
-            get { return proteins; }
-            set { proteins = value; }
-        }
+        public double Fats { get; set; }
 
-        public double Fats
-        {
-            get { return fats; }
-            set { fats = value; }
-        }
+        public double Carbohydrates { get; set; }
 
-        public double Carbohydrates
-        {
-            get { return carbohydrates; }
-            set { carbohydrates = value; }
-        }
-
-        public double Calories
-        {
-            get { return calories; }
-            set { calories = value; }
-        }
+        public double Calories { get; set; }
 
         public Category ProductCategory { get; set; }
 
@@ -60,6 +33,7 @@ namespace CalorieTracker
             Fats = 0;
             Carbohydrates = 0;
             Calories = 0;
+            ProductCategory = Category.None;
         }
 
         public Product(string name, double calories)
@@ -69,15 +43,17 @@ namespace CalorieTracker
             Fats = 0;
             Carbohydrates = 0;
             Calories = calories;
+            ProductCategory = Category.None;
         }
 
-        public Product(string name, double proteins, double fats, double carbohydrates, double calories)
+        public Product(string name, double proteins, double fats, double carbohydrates, double calories, Category category)
         {
             Name = name;
             Proteins = proteins;
             Fats = fats;
             Carbohydrates = carbohydrates;
             Calories = calories;
+            ProductCategory = category;
         }
     }
 }

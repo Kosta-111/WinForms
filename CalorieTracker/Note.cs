@@ -8,9 +8,9 @@ class Note
 
     public double Weight { get; set; }
 
-    public double Proteins => Weight * Product.proteins / 100;
-    public double Fats => Weight * Product.fats / 100;
-    public double Carbohydrates => Weight * Product.carbohydrates / 100;
-    public double Calories => Weight * Product.calories / 100;
+    public double Proteins => Weight * Product.Proteins / 100;
+    public double Fats => Weight * Product.Fats / 100;
+    public double Carbohydrates => Weight * Product.Carbohydrates / 100;
+    public double Calories => Weight * Product.Calories / 100;
 }
 
