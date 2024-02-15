@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             label2 = new Label();
+            editing_btn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -51,12 +52,23 @@
             label2.TabIndex = 1;
             label2.Text = "© 2024 Team B, IT Step";
             // 
+            // editing_btn
+            // 
+            editing_btn.Location = new Point(440, 391);
+            editing_btn.Name = "editing_btn";
+            editing_btn.Size = new Size(135, 60);
+            editing_btn.TabIndex = 2;
+            editing_btn.Text = "Add new product";
+            editing_btn.UseVisualStyleBackColor = true;
+            editing_btn.Click += editing_btn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleTurquoise;
             ClientSize = new Size(635, 602);
+            Controls.Add(editing_btn);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "Form1";
@@ -69,5 +81,6 @@
 
         private Label label1;
         private Label label2;
+        private Button editing_btn;
     }
 }

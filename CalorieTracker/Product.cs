@@ -12,7 +12,7 @@ namespace CalorieTracker
         Eggs
     }
 
-    internal class Product
+    public class Product
     {
         public string Name { get; set; }
 
@@ -54,6 +54,11 @@ namespace CalorieTracker
             Carbohydrates = carbohydrates;
             Calories = calories;
             ProductCategory = category;
+        }
+
+        public override string? ToString()
+        {
+            return $"{Name}, Cal:{Calories}, Prot:{Proteins}, Fats:{Fats}, Carb:{Carbohydrates}, Category:{ProductCategory}";
         }
     }
 }
