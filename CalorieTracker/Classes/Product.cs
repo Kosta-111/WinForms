@@ -1,4 +1,4 @@
-namespace CalorieTracker
+namespace CalorieTracker.Classes
 {
     public enum Category
     {

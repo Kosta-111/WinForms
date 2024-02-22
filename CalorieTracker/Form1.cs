@@ -1,5 +1,6 @@
 using System.ComponentModel;
 using System.Text.Json;
+using CalorieTracker.Classes;
 
 namespace CalorieTracker
 {
@@ -22,7 +23,7 @@ namespace CalorieTracker
                 jsonStr = File.ReadAllText(fileName);
                 products = JsonSerializer.Deserialize<BindingList<Product>>(jsonStr);
             }
-            else using (File.Create(fileName)) ;
+            //else using (File.Create(fileName)) ;
 
 
             FORMEditingAdding form = new FORMEditingAdding(products);

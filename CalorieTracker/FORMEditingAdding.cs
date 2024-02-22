@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CalorieTracker.Classes;
 
 namespace CalorieTracker
 {
@@ -58,6 +59,39 @@ namespace CalorieTracker
 
             }
 
+        }
+
+        private void product_lb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Product pd = (Product)product_lb.SelectedItem;
+            name_tb.Text = pd.Name;
+            Prot_tb.Text = pd.Proteins.ToString();
+            fat_tb.Text = pd.Fats.ToString();
+            Carb_tb.Text = pd.Carbohydrates.ToString();
+            Calo_tb.Text = pd.Calories.ToString();
+            Catgr_cb.SelectedItem = pd.ProductCategory;
+
+        }
+
+        private void Edit_btn_Click(object sender, EventArgs e)
+        {
+            if(product_lb != null) 
+            {
+                p = new Product()
+                {
+                    Name = name_tb.Text,
+                    Calories = double.Parse(Calo_tb.Text),
+                    Carbohydrates = double.Parse(Carb_tb.Text),
+                    Fats = double.Parse(fat_tb.Text),
+                    Proteins = double.Parse(Prot_tb.Text),
+                    ProductCategory = (Category)Catgr_cb.SelectedItem
+                };
+
+                changes = true;
+
+                products.Remove((Product)product_lb.SelectedItem);
+                this.products.Add(p);
+            }
         }
     }
 }
