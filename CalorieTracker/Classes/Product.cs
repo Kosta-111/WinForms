@@ -56,9 +56,9 @@ namespace CalorieTracker.Classes
             ProductCategory = category;
         }
 
-        public override string? ToString()
+        public override string ToString()
         {
-            return $"{Name}, Cal:{Calories}, Prot:{Proteins}, Fats:{Fats}, Carb:{Carbohydrates}, Category:{ProductCategory}";
+            return $"{Name}, Cal: {Calories}";
         }
     }
 }
