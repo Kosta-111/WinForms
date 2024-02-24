@@ -1,63 +1,91 @@
-using CalorieTracker.Classes;
+using System;
 using System.ComponentModel;
-using System.Text.Json;
+using System.IO;
+using System.Windows.Forms;
+using CalorieTracker.Classes;
 
 namespace CalorieTracker
 {
-    public partial class Form1 : Form
+    public partial class FORMEditingAdding : Form
     {
-        BindingList<Product> products = new BindingList<Product>();
-        BindingList<Note> notes = new BindingList<Note>();
+        public Product p { get; set; }
+        public bool changes { get; set; }
+        public BindingList<Product> products { get; set; }
 
-        public Form1()
+        public FORMEditingAdding(BindingList<Product> product)
         {
             InitializeComponent();
-            
+            this.products = product;
+            product_lb.DataSource = this.products;
+            Catgr_cb.DataSource = Enum.GetValues(typeof(Category));
+            changes = false;
         }
 
-        private void editing_btn_Click(object sender, EventArgs e)
+        private void Add_Btn_Click(object sender, EventArgs e)
         {
-            string fileName = "product_list.json";
-            string jsonStr;
-
-            if (!products.Any() && File.Exists(fileName))
+            p = new Product()
             {
-                jsonStr = File.ReadAllText(fileName);
-                products = JsonSerializer.Deserialize<BindingList<Product>>(jsonStr);
-            }
+                Name = name_tb.Text,
+                Calories = double.Parse(Calo_tb.Text),
+                Carbohydrates = double.Parse(Carb_tb.Text),
+                Fats = double.Parse(fat_tb.Text),
+                Proteins = double.Parse(Prot_tb.Text),
+                ProductCategory = (Category)Catgr_cb.SelectedItem
+            };
 
+            changes = true;
 
-            FORMEditingAdding form = new FORMEditingAdding(products);
-            var result = form.ShowDialog();
-
-            if (result == DialogResult.Cancel && form.changes == true)
-            {
-                products = form.products;
-                jsonStr = JsonSerializer.Serialize(products);
-                File.WriteAllText(fileName, jsonStr);
-            }
-
+            this.products.Add(p);
         }
 
-        private void note_btn_Click(object sender, EventArgs e)
+        private void Cnl_Btn_Click(object sender, EventArgs e)
         {
-            string fileName = "note_list.json";
-            string jsonStr;
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
 
-            if (!notes.Any() && File.Exists(fileName))
+        private void dlt_btn_Click(object sender, EventArgs e)
+        {
+            if (product_lb.SelectedItem != null)
             {
-                jsonStr = File.ReadAllText(fileName);
-                notes = JsonSerializer.Deserialize<BindingList<Note>>(jsonStr);
+                Product p = (Product)product_lb.SelectedItem;
+                products.Remove(p);
+                changes = true;
             }
+        }
 
-            NotesForm form = new NotesForm(notes, products);
-            var result = form.ShowDialog();
-
-            if (result == DialogResult.Cancel && form.changes == true)
+        private void product_lb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (product_lb.SelectedItem != null)
             {
-                notes = form.notes;
-                jsonStr = JsonSerializer.Serialize(notes);
-                File.WriteAllText(fileName, jsonStr);
+                Product pd = (Product)product_lb.SelectedItem;
+                name_tb.Text = pd.Name;
+                Prot_tb.Text = pd.Proteins.ToString();
+                fat_tb.Text = pd.Fats.ToString();
+                Carb_tb.Text = pd.Carbohydrates.ToString();
+                Calo_tb.Text = pd.Calories.ToString();
+                Catgr_cb.SelectedItem = pd.ProductCategory;
+            }
+        }
+
+        private void Edit_btn_Click(object sender, EventArgs e)
+        {
+            if (product_lb.SelectedItem != null)
+            {
+                p = new Product()
+                {
+                    Name = name_tb.Text,
+                    Calories = double.Parse(Calo_tb.Text),
+                    Carbohydrates = double.Parse(Carb_tb.Text),
+                    Fats = double.Parse(fat_tb.Text),
+                    Proteins = double.Parse(Prot_tb.Text),
+                    ProductCategory = (Category)Catgr_cb.SelectedItem
+                };
+
+                changes = true;
+
+                products.Remove((Product)product_lb.SelectedItem);
+                this.products.Add(p);
             }
         }
     }
