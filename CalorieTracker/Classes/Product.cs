@@ -1,4 +1,4 @@
-namespace CalorieTracker
+namespace CalorieTracker.Classes
 {
     public enum Category
     {
@@ -56,9 +56,9 @@ namespace CalorieTracker
             ProductCategory = category;
         }
 
-        public override string? ToString()
+        public override string ToString()
         {
-            return $"{Name}, Cal:{Calories}, Prot:{Proteins}, Fats:{Fats}, Carb:{Carbohydrates}, Category:{ProductCategory}";
+            return $"{Name}, Cal: {Calories}";
         }
     }
 }

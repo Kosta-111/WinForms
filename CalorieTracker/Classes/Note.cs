@@ -1,7 +1,8 @@
-﻿namespace CalorieTracker;
+﻿namespace CalorieTracker.Classes;
 
-class Note
+public class Note
 {
+
     public DateTime DateTime { get; set; } = DateTime.Now;
 
     public Product Product { get; set; }
@@ -12,5 +13,10 @@ class Note
     public double Fats => Weight * Product.Fats / 100;
     public double Carbohydrates => Weight * Product.Carbohydrates / 100;
     public double Calories => Weight * Product.Calories / 100;
+
+    public override string? ToString()
+    {
+        return $"Product: {Product}, Weight: {Weight}";
+    }
 }
 

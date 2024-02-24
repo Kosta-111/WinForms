@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             product_lb = new ListBox();
-            Cnl_Btn = new Button();
+            Edit_btn = new Button();
             Add_Btn = new Button();
             name_tb = new TextBox();
             label1 = new Label();
@@ -44,6 +44,7 @@
             label6 = new Label();
             Catgr_cb = new ComboBox();
             dlt_btn = new Button();
+            Cencel_btn = new Button();
             SuspendLayout();
             // 
             // product_lb
@@ -54,16 +55,17 @@
             product_lb.Name = "product_lb";
             product_lb.Size = new Size(524, 139);
             product_lb.TabIndex = 0;
+            product_lb.SelectedIndexChanged += product_lb_SelectedIndexChanged;
             // 
-            // Cnl_Btn
+            // Edit_btn
             // 
-            Cnl_Btn.Location = new Point(229, 464);
-            Cnl_Btn.Name = "Cnl_Btn";
-            Cnl_Btn.Size = new Size(65, 30);
-            Cnl_Btn.TabIndex = 1;
-            Cnl_Btn.Text = "Cancel";
-            Cnl_Btn.UseVisualStyleBackColor = true;
-            Cnl_Btn.Click += Cnl_Btn_Click;
+            Edit_btn.Location = new Point(229, 464);
+            Edit_btn.Name = "Edit_btn";
+            Edit_btn.Size = new Size(65, 30);
+            Edit_btn.TabIndex = 1;
+            Edit_btn.Text = "Edit";
+            Edit_btn.UseVisualStyleBackColor = true;
+            Edit_btn.Click += Edit_btn_Click;
             // 
             // Add_Btn
             // 
@@ -182,11 +184,22 @@
             dlt_btn.UseVisualStyleBackColor = true;
             dlt_btn.Click += dlt_btn_Click;
             // 
+            // Cencel_btn
+            // 
+            Cencel_btn.Location = new Point(327, 464);
+            Cencel_btn.Name = "Cencel_btn";
+            Cencel_btn.Size = new Size(65, 30);
+            Cencel_btn.TabIndex = 16;
+            Cencel_btn.Text = "Cancel";
+            Cencel_btn.UseVisualStyleBackColor = true;
+            Cencel_btn.Click += Cnl_Btn_Click;
+            // 
             // FORMEditingAdding
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(560, 506);
+            Controls.Add(Cencel_btn);
             Controls.Add(dlt_btn);
             Controls.Add(Catgr_cb);
             Controls.Add(label6);
@@ -201,7 +214,7 @@
             Controls.Add(label1);
             Controls.Add(name_tb);
             Controls.Add(Add_Btn);
-            Controls.Add(Cnl_Btn);
+            Controls.Add(Edit_btn);
             Controls.Add(product_lb);
             Name = "FORMEditingAdding";
             Text = "FORMEditingAdding";
@@ -212,7 +225,7 @@
         #endregion
 
         private ListBox product_lb;
-        private Button Cnl_Btn;
+        private Button Edit_btn;
         private Button Add_Btn;
         private TextBox name_tb;
         private Label label1;
@@ -227,5 +240,6 @@
         private Label label6;
         private ComboBox Catgr_cb;
         private Button dlt_btn;
+        private Button Cencel_btn;
     }
 }

@@ -31,6 +31,7 @@
             label1 = new Label();
             label2 = new Label();
             editing_btn = new Button();
+            note_btn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -62,12 +63,23 @@
             editing_btn.UseVisualStyleBackColor = true;
             editing_btn.Click += editing_btn_Click;
             // 
+            // note_btn
+            // 
+            note_btn.Location = new Point(103, 399);
+            note_btn.Name = "note_btn";
+            note_btn.Size = new Size(119, 52);
+            note_btn.TabIndex = 3;
+            note_btn.Text = "Add notes";
+            note_btn.UseVisualStyleBackColor = true;
+            note_btn.Click += note_btn_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.PaleTurquoise;
             ClientSize = new Size(635, 602);
+            Controls.Add(note_btn);
             Controls.Add(editing_btn);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -82,5 +94,6 @@
         private Label label1;
         private Label label2;
         private Button editing_btn;
+        private Button note_btn;
     }
 }
