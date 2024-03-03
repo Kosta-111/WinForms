@@ -1,4 +1,4 @@
-﻿namespace CalorieTracker.Classes;
+﻿namespace CalorieTracker.Models;
 
 public class Note
 {
