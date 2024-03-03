@@ -28,38 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            note_lb = new ListBox();
             add_btn = new Button();
             label1 = new Label();
             product_cb = new ComboBox();
             label2 = new Label();
             weight_tb = new TextBox();
             cancel_btn = new Button();
+            dateTimePicker1 = new DateTimePicker();
+            label3 = new Label();
             SuspendLayout();
-            // 
-            // note_lb
-            // 
-            note_lb.FormattingEnabled = true;
-            note_lb.ItemHeight = 15;
-            note_lb.Location = new Point(29, 24);
-            note_lb.Name = "note_lb";
-            note_lb.Size = new Size(455, 139);
-            note_lb.TabIndex = 0;
             // 
             // add_btn
             // 
-            add_btn.Location = new Point(29, 365);
+            add_btn.BackColor = Color.YellowGreen;
+            add_btn.Location = new Point(19, 154);
             add_btn.Name = "add_btn";
-            add_btn.Size = new Size(111, 47);
+            add_btn.Size = new Size(111, 41);
             add_btn.TabIndex = 1;
             add_btn.Text = "Add";
-            add_btn.UseVisualStyleBackColor = true;
+            add_btn.UseVisualStyleBackColor = false;
             add_btn.Click += add_btn_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(29, 186);
+            label1.Location = new Point(19, 81);
             label1.Name = "label1";
             label1.Size = new Size(49, 15);
             label1.TabIndex = 2;
@@ -67,16 +60,19 @@
             // 
             // product_cb
             // 
+            product_cb.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            product_cb.AutoCompleteMode = AutoCompleteMode.Suggest;
+            product_cb.AutoCompleteSource = AutoCompleteSource.ListItems;
             product_cb.FormattingEnabled = true;
-            product_cb.Location = new Point(93, 183);
+            product_cb.Location = new Point(83, 78);
             product_cb.Name = "product_cb";
-            product_cb.Size = new Size(121, 23);
+            product_cb.Size = new Size(234, 23);
             product_cb.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(33, 222);
+            label2.Location = new Point(23, 117);
             label2.Name = "label2";
             label2.Size = new Size(45, 15);
             label2.TabIndex = 4;
@@ -84,47 +80,68 @@
             // 
             // weight_tb
             // 
-            weight_tb.Location = new Point(93, 219);
+            weight_tb.Location = new Point(83, 114);
             weight_tb.Name = "weight_tb";
             weight_tb.Size = new Size(121, 23);
             weight_tb.TabIndex = 5;
             // 
             // cancel_btn
             // 
-            cancel_btn.Location = new Point(213, 371);
+            cancel_btn.BackColor = Color.Salmon;
+            cancel_btn.Location = new Point(229, 154);
             cancel_btn.Name = "cancel_btn";
             cancel_btn.Size = new Size(116, 41);
             cancel_btn.TabIndex = 6;
             cancel_btn.Text = "Cancel";
-            cancel_btn.UseVisualStyleBackColor = true;
+            cancel_btn.UseVisualStyleBackColor = false;
             cancel_btn.Click += cancel_btn_Click;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.CustomFormat = "dd.MM.yyyy hh:mm";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.Location = new Point(83, 30);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(234, 23);
+            dateTimePicker1.TabIndex = 7;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(17, 36);
+            label3.Name = "label3";
+            label3.Size = new Size(60, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Date Time";
             // 
             // NotesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(522, 450);
+            BackColor = Color.BurlyWood;
+            ClientSize = new Size(357, 225);
+            Controls.Add(label3);
+            Controls.Add(dateTimePicker1);
             Controls.Add(cancel_btn);
             Controls.Add(weight_tb);
             Controls.Add(label2);
             Controls.Add(product_cb);
             Controls.Add(label1);
             Controls.Add(add_btn);
-            Controls.Add(note_lb);
             Name = "NotesForm";
-            Text = "NotesForm";
+            Text = "New note";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private ListBox note_lb;
         private Button add_btn;
         private Label label1;
         private ComboBox product_cb;
         private Label label2;
         private TextBox weight_tb;
         private Button cancel_btn;
+        private DateTimePicker dateTimePicker1;
+        private Label label3;
     }
 }
